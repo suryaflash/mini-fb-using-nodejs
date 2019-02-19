@@ -1,0 +1,159 @@
+
+
+.homeDiv
+{
+    border: 1px;
+    float:left;
+    width : 25% ;
+    padding : 25px;
+}
+
+.homeDiv1
+{
+    border: 1px;
+    width :50% ;
+    padding:2%;
+    float:left;
+    padding : 25px;
+}
+
+.homeDiv2
+{
+    border: 1px;
+    float:left;
+    align-items: center;
+    margin-bottom: 50%;
+    width : 25% ;
+    height: 50%;
+    padding : 25px;
+}
+
+.sentrequests
+{
+    margin-top: 50%;
+    height :50%;
+}
+
+.friendslist
+{
+    width : 100%;
+    margin-top: 25%;
+    float : bottom;
+}
+
+.profile
+{
+    width : 25%;
+    float : right;
+    
+}
+
+.wall
+{
+    width : 75%;
+    float : left;
+    border : 10%;
+}
+
+.connectButton
+{
+    width : 100%;
+}
+
+.buttonclass
+{
+    float:right;
+    margin-top: 3%;
+}
+
+.sessionowner
+{
+    padding-right: 50px;
+    float: left;
+}
+
+.sessionowner2
+{
+    padding-left: 1000px;
+    padding-right : 50px;
+    float: left;
+}
+
+.sessionowner3
+{
+    padding-left: 630px;
+    padding-right : 50px;
+    float: left;
+}
+
+.searchbutton
+{
+    float: inherit ;
+    margin-left: 40%;
+    margin-top: 3%;
+}
+
+.search
+{
+    margin-top: 10%;   
+}   
+
+.homee
+{
+    float: left;
+}
+
+.timelinepost
+{
+    font-size : 30px;
+}
+
+.postcontent
+{
+    width : 100%;
+}
+
+.mail{
+    margin-left: 26px;
+    padding-bottom: 10px;
+}
+
+.icon
+{
+    float : left;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.thumbs
+{
+    float: left;
+}
+
+.thumbs:hover{
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.show
+{
+    block-size: 10%;
+    font-size: "25px";
+}
+
+.show:hover ul.list-likers{
+    max-height: inherit;
+    cursor: pointer;
+    opacity: 1;
+    }
+  
+  .list-likers{
+    list-style-type: none;
+    cursor: pointer;    
+    padding: 0px;
+    margin: 0px;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 300ms ease;
+  }
