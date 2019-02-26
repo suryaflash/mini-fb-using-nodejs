@@ -18,7 +18,8 @@ class login extends React.Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
-  componentWillMount() {
+  componentWillMount() 
+  {
     if (localStorage.getItem('token') !== null)
       window.location.href = "/home";
   }

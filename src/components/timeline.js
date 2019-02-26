@@ -51,6 +51,7 @@ export default class timeline extends React.Component {
         if (localStorage.getItem('token') == null)
             window.location.href = "/login";
         this.timelinePost();
+        this.getImage();
     }
 
 
@@ -72,6 +73,39 @@ export default class timeline extends React.Component {
             .then((data) => this.timelinePost())
             .catch(error => { if (error) throw error; })
     }
+    getImage = () =>
+    {
+        fetch('http://localhost:8082/getImage',
+                { headers: { 'Auth': `bearer ${localStorage.getItem('token')}` } })
+                .then(response => response.json())
+                .then(response =>
+                    {
+                        if(response[0].profile_pic === null)
+                         localStorage.setItem('url','https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png')
+                        else
+                         localStorage.setItem('url',response[0].profile_pic)
+                    }
+                    )
+                .catch(error => { if (error) throw error; } )
+     }
+
+
+    sessionDestroy = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('url');
+        localStorage.removeItem('name');
+        localStorage.removeItem('uid');
+        
+        fetch('http://localhost:8082/logout')
+          .then(response => response.json())
+          .then(data => {
+            if (data.check === true)
+              window.location.href = "/login";
+          })
+          .catch(err => console.log(err))
+          console.log(localStorage.getItem('token','url','name','uid'));
+        window.location.href = "/"
+      }
 
     render() {
         return (
@@ -96,6 +130,10 @@ export default class timeline extends React.Component {
 
                             <NavItem className="sessionowner">
                                 Hi {localStorage.getItem('name')}
+                            </NavItem>
+
+                            <NavItem className="sessionowner">
+                                <img src={localStorage.getItem('url')} alt="" width="50px" ></img>
                             </NavItem>
 
                             <NavItem>
