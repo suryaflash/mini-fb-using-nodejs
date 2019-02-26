@@ -164,40 +164,40 @@ export default class wall extends React.Component {
 
     render() {
         return (
-            <div className='container'>
-                <Navbar color="link" light expand="md">
-                    <NavbarToggler onClick={this.toggle} />
+            <div >
+                <Navbar  light expand="md">
+          <NavbarToggler onClick={this.toggle} />
 
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav navbar>
 
-                            <NavItem className="homee">
-                                <Link to="/home" >HOME</Link>
-                            </NavItem>
+              <NavItem className="homee">
+                <Link to="/home" >HOME</Link>
+              </NavItem>
 
-                            <NavItem className="sessionowner3">
-                                <Link to="/wall" onClick={this.timeline}>WALL</Link>
-                            </NavItem>
+              <NavItem className="sessionowner2">
+                <Link to="/wall" onClick={this.wall}>WALL</Link>
+              </NavItem>
 
-                            <NavItem className="sessionowner">
-                                <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
-                            </NavItem>
+              <NavItem className="sessionowner">
+                <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
+              </NavItem>
 
-                            <NavItem className="sessionowner">
-                                Hi {localStorage.getItem('name')}
-                            </NavItem>
+              <NavItem className="sessionowner">
+                Hi {(localStorage.getItem('name'))}
+              </NavItem>
 
-                            <NavItem className="sessionowner">
-                                <img src={localStorage.getItem('url')} alt="" width="50px" ></img>
-                            </NavItem>
+              <NavItem className="sessionowner">
+                  <img src={localStorage.getItem('url')} alt="" width="50px" ></img>
+               </NavItem>
 
-                            <NavItem>
-                                <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
-                            </NavItem>
+              <NavItem className="sessionowner">
+                <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
+              </NavItem>
 
-                        </Nav>
-                    </Collapse>
-                </Navbar>
+            </Nav>
+          </Collapse>
+        </Navbar>
                 <div className="wall">
                     <Alert color="warning" align="center" className="timelinepost"> YOUR WALL </Alert>
                     <div>

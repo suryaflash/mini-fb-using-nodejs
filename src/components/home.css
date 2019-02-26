@@ -34,6 +34,12 @@
     
 }
 
+#wallDiv
+{
+     background-color: #10729C;
+     color: white;
+}
+
 .friendslist
 {
     width : 100%;
@@ -79,6 +85,10 @@
     float: left;
 }
 
+/* nav{
+    float:right;
+} */
+
 .sessionowner3
 {
     padding-left: 630px;
@@ -100,7 +110,7 @@
 
 .homee
 {
-    float: left;
+    position: absolute;
 }
 
 .timelinepost

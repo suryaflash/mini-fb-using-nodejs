@@ -55,9 +55,9 @@ export default class signup extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div class="container">
         <Example />
-        <div>
+        <div class="container">
           <Alert color="info" align="center" >
             !! WELCOME !!
             </Alert>

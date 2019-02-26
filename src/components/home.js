@@ -29,7 +29,8 @@ export default class home extends React.Component {
       sentRequest: [],
       ourfriends: [],
       searchitem: '',
-      searchresult: []
+      searchresult: [],
+      postPicture : ''
     };
 
   }
@@ -160,6 +161,7 @@ export default class home extends React.Component {
     const data =
     {
       postItem: this.state.post,
+      postPicture: this.state.postPicture
     }
     fetch('http://localhost:8082/postItem',
       {
@@ -243,7 +245,18 @@ export default class home extends React.Component {
               .catch(error => { if (error) throw error; } )
    }
 
-
+   onImageUpload = (e) =>
+   {
+       const reader=new FileReader();
+       const self = this;
+       console.log("reader:",reader);
+       reader.onload=function()
+       {
+           localStorage.setItem('url',reader.result);
+           self.setState({postPicture:reader.result})
+       }
+       reader.readAsDataURL(e.target.files[0]);
+   }
 
 
   searchFriend = () => {
@@ -270,7 +283,7 @@ export default class home extends React.Component {
     return (
 
       <div>
-        <Navbar color="link" light expand="md">
+        <Navbar  light expand="md">
           <NavbarToggler onClick={this.toggle} />
 
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -348,6 +361,10 @@ export default class home extends React.Component {
             <FormGroup>
               <Label color="info" for="exampleText">Update status of your post</Label>
               <Input type="textarea" name="post" id="postText" value={this.state.post} onChange={this.handleChange} />
+              <div class="custom-file">
+                            <input onChange={this.onImageUpload} type="file" class="custom-file-input" id="customFile" accept="img/png , img/jpg , img/gif , img/jpeg"/>
+                            <label class="custom-file-label" for="customFile">Upload Picture for your post</label>
+              </div>
               <Button className="buttonclass" color="success" onClick={this.postItem} > POST IT !</Button>
             </FormGroup>
           </div>
