@@ -4,6 +4,8 @@ import './home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import {Helmet} from 'react-helmet';
+
 
 export default class timeline extends React.Component {
     constructor(props) {
@@ -110,50 +112,58 @@ export default class timeline extends React.Component {
     render() {
         return (
             <div >
+                 <Helmet>
+                <style>{'body { background-color: rgb(42, 240, 148); }'}</style>
+            </Helmet>
                 <Navbar  light expand="md">
           <NavbarToggler onClick={this.toggle} />
 
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
 
-              <NavItem className="homee">
-                <Link to="/home" >HOME</Link>
-              </NavItem>
+            <NavItem>
+                  <Link to="/home" >HOME</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner2">
-                <Link to="/wall" onClick={this.wall}>WALL</Link>
-              </NavItem>
+                <NavItem className="walle">
+                  <Link to="/wall" onClick={this.wall}>WALL</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
-              </NavItem>
+                <NavItem className="timelinee">
+                  <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                Hi {(localStorage.getItem('name'))}
-              </NavItem>
+                <h4 style={{paddingLeft : "345px", fontFamily:"Bradley Hand, cursive" }}> Mini-FB</h4>
 
-              <NavItem className="sessionowner">
-                  <img src={localStorage.getItem('url')} alt="" width="50px" ></img>
-               </NavItem>
+                <NavItem className="namee">
+                  Hi {(localStorage.getItem('name'))}
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
-              </NavItem>
+                <NavItem className="dp">
+                  <img src={localStorage.getItem('url')} alt="" width="75px" ></img>
+                </NavItem>
+
+                <NavItem className="logoute">
+                  <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
+                </NavItem>
 
             </Nav>
           </Collapse>
         </Navbar>
-                <div className='container'>
-                    <Alert color="warning" align="center" className="timelinepost"> TIMELINE POSTS </Alert>
+                <div className='timeline'>
+                    <Alert color="info" align="center" className="timelinepost"> TimeLine Posts </Alert>
                     <div>
                         {this.state.posts.map((post, index) => (
                             <Card className="postcontent" key={index} body color="">
                                 <CardTitle><Button color="info">{post.post_by}</Button></CardTitle>
                                 <CardText color="info" style={{ fontFamily: "sans-srif", fontSize: "20px" }}>{post.post_content}</CardText>
+                                <CardText>
+                                {<img src={post.photo} style={{width : "15%" ,padding:"10px" ,paddingBottom : "30px"}} alt="" />}
+                                    </CardText>
                                 <div>
                                     <p style={{ float: "left", paddingRight: "10px", color: "blue" }}>LIKE</p>
-                                    <FontAwesomeIcon className="thumbs" icon={faThumbsUp} style={{ fontSize: "35px", paddingBottom: "10px" }} onClick={() => this.likeButton(post)}></FontAwesomeIcon>
-                                    <span className="show" onMouseOver={() => this.likelist(post)} style={{ fontSize: "20px", paddingLeft: "10px", paddingTop: "20px" }}>{post.likes}
+                                    <FontAwesomeIcon className="thumbs" icon={faThumbsUp} style={{ float: "left", color: "rgb(0,89,255" }} onClick={() => this.likeButton(post)}></FontAwesomeIcon>                                    
+                                    <span className="show" onMouseOver={() => this.likelist(post)} style={{ fontSize: "20px", paddingLeft: "10px",  paddingTop: "20%"}}><b>{post.likes}</b>
                                         <ul className="list-likers">
                                             {
                                                 this.state.likelist.map((mail, idx) => (

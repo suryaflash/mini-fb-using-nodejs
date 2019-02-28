@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col , Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Example from './navbar';
 
 
@@ -57,29 +57,29 @@ class login extends React.Component {
 
   render() {
     return (
-      <div>
-        <div class="container"  >
-          <Example />
-
-          <div>
-            <Alert color="secondary" align="center" >
-              !! LOGIN TO YOUR ACCOUNT !!
-                </Alert>
-            <Form>
+        <div class="signup-page">
+        <Example />
+        <div >
+          <Form className="form">
+            <Alert align="center"  >
+              LOG INTO YOUR ACCOUNT
+            </Alert>
+            <Col>
               <FormGroup>
                 <Label for="exampleEmail">Email</Label>
                 <Input type="text" name="email" id="exampleEmail" placeholder="Enter Email Address" value={this.state.email} onChange={this.handleChange} />
               </FormGroup>
-              <FormGroup>
-                <Label for="examplePassword">Password</Label>
-                <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" value={this.state.password} onChange={this.handleChange} />
-              </FormGroup>
-
-            </Form>
+            </Col>
+            <Col>
+            <FormGroup>
+              <Label for="examplePassword">Password</Label>
+              <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" value={this.state.password} onChange={this.handleChange} />
+            </FormGroup>
+            </Col>
             <div style={{ textAlign: 'center' }}>
               <Button outline color="success" align="center" onClick={this.onLogIn}>LOG IN</Button>
             </div>
-          </div>
+          </Form>
         </div>
       </div>
     )

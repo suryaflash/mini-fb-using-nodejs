@@ -26,12 +26,14 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">SIGN UP PAGE</NavbarBrand>
+          <NavbarBrand href="/">Sign-Up</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+            <h4 style={{paddingRight : "650px", fontFamily:"Bradley Hand, cursive" ,color:"green"}}> Mini-FB</h4>
+
               <NavItem>
-                <Link to="/login">LOG IN PAGE</Link>
+                <Link to="/login">Log In</Link>
               </NavItem>
             </Nav>
           </Collapse>

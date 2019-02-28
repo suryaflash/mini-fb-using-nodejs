@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Col, Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Example from './navbar';
 
 export default class signup extends React.Component {
@@ -55,34 +55,34 @@ export default class signup extends React.Component {
 
   render() {
     return (
-      <div class="container">
+      <div class="signup-page">
         <Example />
-        <div class="container">
-          <Alert color="info" align="center" >
-            !! WELCOME !!
+        <div >
+          <Form className="form">
+            <Alert align="center"  >
+              Create An Account
             </Alert>
-          <Form>
-
-            <FormGroup>
-              <Label for="exampleEmail">Email</Label>
-              <Input type="text" name="email" id="exampleEmail" placeholder="Enter Email Address" value={this.state.email} onChange={this.handleChange} />
-            </FormGroup>
+            <Col>
+              <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input type="text" name="email" id="exampleEmail" placeholder="Enter Email Address" value={this.state.email} onChange={this.handleChange} />
+              </FormGroup>
+            </Col>
+            <Col>
             <FormGroup>
               <Label for="examplePassword">Password</Label>
               <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" value={this.state.password} onChange={this.handleChange} />
             </FormGroup>
+            </Col>
             <FormGroup>
               <Label style={{ paddingRight: "30px" }} for="exampleShow">Show Me In Search</Label>
               <Input type="checkbox" name="show" id="exampleShow" checked={this.state.showme} onChange={this.toggleChange} />
             </FormGroup>
-
+            <div style={{ textAlign: 'center' }}>
+              <Button outline color="success" align="center" onClick={this.addPeople}>SIGN UP</Button>
+            </div>
           </Form>
-          <div style={{ textAlign: 'center' }}>
-            <Button outline color="success" align="center" onClick={this.addPeople}>SIGN UP</Button>
-          </div>
-
         </div>
-
       </div>
     );
   }

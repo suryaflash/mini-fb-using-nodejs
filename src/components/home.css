@@ -1,37 +1,86 @@
-
-
 .homeDiv
 {
-    border: 1px;
     float:left;
+   
     width : 25% ;
-    padding : 25px;
+    height : 100%;
+    padding : 5px;
 }
 
 .homeDiv1
 {
-    border: 1px;
+   
     width :50% ;
-    padding:2%;
     float:left;
-    padding : 25px; 
+    height : 100%;
+    padding : 5px; 
+}
+
+.homepage
+{
+    background-color: rgb(42, 240, 148);
+}
+
+table,tr,td{
+    border: none;
 }
 
 .homeDiv2
 {
     border: 1px;
+   
     float:left;
-    align-items: center;
-    margin-bottom: 50%;
+    height : 100%;
     width : 25% ;
-    
-    padding : 25px;
+    padding : 5px;
 }
+
+ .form { 
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 165px auto 160px;
+    border : 75%;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
+} 
+  
+.form input {
+     box-sizing: border-box;
+     font-family: 'sans-serif';
+    font-size: 15px;
+  }
+
+.signup-page {
+    background-color: rgb(42, 240, 148);
+    height: 200%;
+    margin: auto;
+  }
+
+
+  .form button {
+    font-family:  sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 10;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .form button:hover,.form button:active,.form button:focus {
+    background: rgb(42, 240, 148);
+  }
+  
+
 
 .sentrequests
 {
     margin-top: 50%;
-    
 }
 
 #wallDiv
@@ -43,23 +92,10 @@
 .friendslist
 {
     width : 100%;
-    margin-top: 25%;
-    float : bottom;
-}
-
-.profile
-{
-    width : 25%;
+    padding : 10px;
     float : right;
-    
 }
 
-.wall
-{
-    width : 75%;
-    float : left;
-    border : 10%;
-}
 
 .connectButton
 {
@@ -72,30 +108,57 @@
     margin-top: 3%;
 }
 
-.sessionowner
+.walle
 {
-    padding-right: 50px;
-    float: left;
+    padding-left: 100px;
 }
 
-.sessionowner2
+.timelinee
 {
-    padding-left: 1000px;
-    padding-right : 50px;
-    float: left;
+    padding-left: 100px;
 }
 
-/* nav{
-    float:right;
-} */
-
-.sessionowner3
+.namee
 {
-    padding-left: 630px;
-    padding-right : 50px;
-    float: left;
+    padding-left: 175px;
 }
 
+.dp
+{
+    padding-left: 30px;
+    padding-right: 150px;
+}
+
+
+.timeline
+{
+    width:75%;
+    margin-left: 10%;
+}
+
+.profile
+{
+    width : 25%;
+    padding : 20px;
+    float : right;
+}
+
+.wall
+{
+    width : 75%;
+    float : left;
+    padding :15px;
+}
+
+.timelinepost
+{
+    font-size : 20px;
+}
+
+.postcontent
+{
+    width : 100%;
+}
 .searchbutton
 {
     float: inherit ;
@@ -105,7 +168,7 @@
 
 .search
 {
-    margin-top: 10%;   
+    margin-top: 15%;   
 }   
 
 .homee
@@ -113,19 +176,18 @@
     position: absolute;
 }
 
-.timelinepost
-{
-    font-size : 30px;
-}
-
-.postcontent
-{
-    width : 100%;
-}
 
 .mail{
     margin-left: 26px;
     padding-bottom: 10px;
+}
+
+.homePage
+{
+    background: url(../components/pictures/bg.jpeg);
+    background-size : cover;
+    background-position: center 10%;
+    background-color:beige;
 }
 
 .icon

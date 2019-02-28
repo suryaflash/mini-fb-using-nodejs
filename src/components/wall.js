@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faUser } from '@fortawesome/free-solid-svg-icons';
+import {Helmet} from 'react-helmet';
+
 
 
 export default class wall extends React.Component {
@@ -165,50 +167,57 @@ export default class wall extends React.Component {
     render() {
         return (
             <div >
+                 <Helmet>
+                <style>{'body { background-color: rgb(42, 240, 148); }'}</style>
+            </Helmet>
                 <Navbar  light expand="md">
           <NavbarToggler onClick={this.toggle} />
 
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
 
-              <NavItem className="homee">
-                <Link to="/home" >HOME</Link>
-              </NavItem>
+            <NavItem>
+                  <Link to="/home" >HOME</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner2">
-                <Link to="/wall" onClick={this.wall}>WALL</Link>
-              </NavItem>
+                <NavItem className="walle">
+                  <Link to="/wall" onClick={this.wall}>WALL</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
-              </NavItem>
+                <NavItem className="timelinee">
+                  <Link to="/timeline" onClick={this.timeline}>TIMELINE</Link>
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                Hi {(localStorage.getItem('name'))}
-              </NavItem>
+                <h4 style={{paddingLeft : "345px", fontFamily:"Bradley Hand, cursive" }}> Mini-FB</h4>
 
-              <NavItem className="sessionowner">
-                  <img src={localStorage.getItem('url')} alt="" width="50px" ></img>
-               </NavItem>
+                <NavItem className="namee">
+                  Hi {(localStorage.getItem('name'))}
+                </NavItem>
 
-              <NavItem className="sessionowner">
-                <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
-              </NavItem>
+                <NavItem className="dp">
+                  <img src={localStorage.getItem('url')} alt="" width="75px" ></img>
+                </NavItem>
+
+                <NavItem className="logoute">
+                  <Link to="/login" onClick={this.sessionDestroy}>LOGOUT</Link>
+                </NavItem>
 
             </Nav>
           </Collapse>
         </Navbar>
                 <div className="wall">
-                    <Alert color="warning" align="center" className="timelinepost"> YOUR WALL </Alert>
+                    <Alert color="info" align="center" className="timelinepost"> Wall</Alert>
                     <div>
                         {this.state.posts.map((post, index) => (
                             <Card className="postcontent" key={index} >
-                                <CardTitle><Button color="info">{post.post_by}</Button></CardTitle>
-                                <CardText style={{ fontFamily: "sans-srif", fontSize: "20px" }}>{post.post_content}</CardText>
                                 <div>
-                                    <p style={{ float: "left", paddingRight: "10px", color: "blue" }}>LIKE</p>
-                                    <FontAwesomeIcon className="thumbs" icon={faThumbsUp} onClick={() => this.likeButton(post)}></FontAwesomeIcon>
-                                    <span className="show" onMouseOver={() => this.likelist(post)} style={{ fontSize: "20px", paddingLeft: "10px", paddingTop: "20px" }}>{post.likes}
+                                <CardText style={{ fontFamily: "sans-srif", fontSize: "20px" ,padding:"10px"}}>{post.post_content}</CardText>
+                                {<img src={post.photo} style={{width : "15%" ,padding:"10px" ,paddingBottom : "30px"}} alt="" />}
+                                </div>
+                                <div>
+                                    <p style={{ float: "left", paddingLeft: "10px",paddingTop:"10px", color: "blue" }}>LIKE</p>
+                                    <FontAwesomeIcon className="thumbs" icon={faThumbsUp} style={{ float: "left", margin:"1%", color: "rgb(0,89,255" }} onClick={() => this.likeButton(post)}></FontAwesomeIcon>
+                                    <span className="show" onMouseOver={() => this.likelist(post)} style={{ fontSize: "25px" ,margin:"1%" ,paddingTop:"5%"}}>{post.likes}
                                         <ul className="list-likers">
                                             {
                                                 this.state.likelist.map((mail, idx) => (
@@ -227,27 +236,25 @@ export default class wall extends React.Component {
                 </div>
 
                 <div className="profile">
-                    <Alert color="primary" align="center" style={{ fontSize: "30px" }}> PROFILE </Alert>
+                    <Alert color="primary" align="center"   > Profile </Alert>
 
                     <Card>
                         <CardBody>
-                            <CardTitle style={{ textDecoration: "bold" }}>{localStorage.getItem('name')}</CardTitle>
-                            {/* <CardSubtitle>EMAIL ADDRESS : {localStorage.getItem('name')}</CardSubtitle> */}
+                            <CardTitle ><b>{localStorage.getItem('name')}</b></CardTitle>
                             <CardText>
-                                <img src={localStorage.getItem('url')} alt="" width="100px" />
+                                <img src={localStorage.getItem('url')} alt="" width="200px" />
                             </CardText>
                         <div class="custom-file">
                             <input onChange={this.onImageUpload} type="file" class="custom-file-input" id="customFile" accept="img/png , img/jpg , img/gif , img/jpeg"/>
-                            <label class="custom-file-label" for="customFile">Change Picture</label>
+                            <label class="custom-file-label" for="customFile">Change Display Picture</label>
                         </div>
-                            <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
                         </CardBody>
                     </Card>
 
 
                     <div className="friendslist">
-                        <Alert color="primary" align="center" > YOUR FRIENDS </Alert>
-                        <Table >
+                        <Alert color="primary" align="center" > Friend List </Alert>
+                        <Table borderless>
                             <tbody>
                                 {this.state.ourfriends.map((friend, index) =>
                                     (
